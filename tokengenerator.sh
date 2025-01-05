@@ -5,6 +5,7 @@
 #ipfs ports 4001, 8080 allowed
 #ideally configure a reverse proxy with nginx for /ipfs on port 8080
 #obviously you need a working keypair enabled on solana cli with funds to pay for the gas
+#other than that all you need is an image file to use for the logo
 
 
 # Prompt for the image file
@@ -73,8 +74,7 @@ echo "Metadata URI: https://ipfs.io/ipfs/$URI_CID"
 
 #!/bin/bash
 
-# Prompt the user for the token URI
-#read -p "Enter the token URI: " TOKEN_URI
+
 
 TOKEN_URI="https://ipfs.io/ipfs/$URI_CID"
 
@@ -85,17 +85,8 @@ if [[ -z "$TOKEN_URI" ]]; then
   exit 1
 fi
 
-# Fetch the metadata using curl
-#echo "Fetching metadata from $TOKEN_URI..."
-#METADATA=$(curl -s "$TOKEN_URI")
-#
-# Check if the metadata was fetched successfully
-#if [[ -z "$METADATA" ]]; then
-#  echo "Error: Unable to fetch metadata from the provided URI."
-#  exit 1
-#fi
 
-# Extract the name and symbol using jq
+#  name and symbol 
 NAME="$TOKEN_NAME"
 SYMBOL="$TOKEN_SYMBOL"
 
@@ -141,7 +132,7 @@ spl-token mint "$TOKEN_MINT" "$MINT_AMOUNT" "$TOKEN_ACCOUNT"
 #echo "Mint and freeze authorities disabled."
 
 # Step 7: Initialize and upload metadata
-#metaboss create metadata -a "$TOKEN_MINT" -m metadata.json
+
 echo "Initializing and updating metadata..."
 spl-token -u mainnet-beta initialize-metadata "$TOKEN_MINT" "$NAME" "$SYMBOL" "$TOKEN_URI"
 
