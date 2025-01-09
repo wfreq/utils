@@ -25,7 +25,10 @@ To use this repository, ensure the following requirements are met:
 ## Usage
 
 1. **Prepare Your Image**:
-   - Choose an image file to use as the NFT logo.
+   - Choose an image file to use as the token logo and save it as a friendly filename, in this case image.jpg.
+   ```bash
+   wget -O image.jpg "https://path-to-image-file-online.com"
+   ```
 
 2. **Run script**:
    ```bash
@@ -37,7 +40,7 @@ To use this repository, ensure the following requirements are met:
 
 ## Getting Started
 
-1. Clone this repository:
+1. First run: 
    ```bash
    git clone <repository-url>
    cd <repository-name>
