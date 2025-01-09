@@ -42,7 +42,6 @@ To use this repository, ensure the following requirements are met:
 
 1. First run: 
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   wget https://raw.githubusercontent.com/wfreq/utils/refs/heads/main/tokengenerator/token_generator.sh
    sudo chmod +x token_generator.sh
    ./token_generator.sh
